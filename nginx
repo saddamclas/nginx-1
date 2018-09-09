@@ -1,0 +1,9 @@
+FROM nginx
+MAINTAINER saddam123@gmail.com
+       RUN apt-get update -y
+       RUN apt-get install vim net-tools openssh-server sudo wget -y
+       RUN apt-get clean
+       COPY index.html /usr/share/nginx/html/index.html
+       ADD nginx.sh /nginx.sh
+       CMD ["/bin/bash","/nginx.sh"]
+        	
